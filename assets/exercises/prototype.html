@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="../exercises/">Go back</a>
+    <p><em>Abre la consola</em></p>
+
+    <script>
+        // ******** A common object ***********
+        // const zelda = {
+        //     name: "Zelda",
+        // };
+
+        // zelda.saludar = function () {
+        //     console.log(`Hola soy ${this.name}`);
+        // };
+
+        // zelda.saludar();
+
+        // const link = {
+        //     name: "Link",
+        // };
+
+        // link.saludar = function () {
+        //     console.log(`Hola soy ${this.name}`);
+        // };
+
+        // link.saludar();
+
+        // ******** Let's be more efficient ***********
+        // function Hero (name) {
+        //     const hero = {
+        //         name: name,
+        //     }
+
+        //     hero.saludar = function () {
+        //         console.log(`Hola soy ${this.name}`);
+        //     };
+
+        //     return hero;
+        // }
+
+        // const zelda = Hero("Zelda");
+        // zelda.saludar();
+
+        // const link = Hero("Link");
+        // link.saludar();
+
+        // ********** We can still be more efficient avoiding define the function "saludar" multiple times we create an instance of Hero
+        // const heroMethods = {
+        //     saludar: function () {
+        //         console.log(`Me llamo ${this.name}`);
+        //     }
+        // }
+
+        // function Hero (name) {
+        //     const hero = {
+        //         name: name,
+        //     }
+        //     hero.saludar = heroMethods.saludar;
+        //     return hero;
+        // }
+
+        // const zelda = Hero("Zelda");
+        // zelda.saludar();
+
+        // const link = Hero("Link");
+        // link.saludar();
+
+        //******* Object.create *********
+        // const nuevoObjeto = Object.create(objeto)
+
+        // const heroMethods = {
+        //     saludar: function () {
+        //         console.log(`Soy superheroe ${this.name}`);
+        //     }
+        // }
+
+        // function Hero(name) {
+        //     const hero = Object.create(heroMethods) //Using Object.create() we pass the methods and properties of heroMethods to the prototype of the new object created, in this case 'hero'
+        //     hero.name = name;
+        //     return hero;
+        // }
+
+        // const zelda = Hero("Zelda");
+        // zelda.saludar();
+
+        // const link = Hero("Link");
+        // link.saludar();
+
+
+        // ******* heroMethods methods inside Hero ********+
+
+        // function Hero(name) {
+        //     const hero = Object.create(Hero.prototype) //Using Object.create() we pass the methods and properties of Hero.prototype to the prototype of the new object created, in this case 'hero'
+        //     hero.name = name;
+        //     return hero;
+        // }
+
+        // Hero.prototype.saludar = function () {
+        //     console.log(`Soy superheroe ${this.name}`);
+        // }
+
+        // const zelda = Hero("Zelda");
+        // zelda.saludar();
+
+        // const link = Hero("Link");
+        // link.saludar();
+
+
+        // ****** 'new' as a shortcut (syntax sugar) to bring Hero.prototype to the object we are creating
+        function Hero(name) {
+            // const this = Object.create(Hero.prototype) // (When we use 'new' on the instance this occurs automatically) Using Object.create() we pass the methods and properties of Hero.prototype to the prototype of the new object created, in this case 'hero'
+            // when 'new' does the thing we said, it automatically assign that prototype to the object "THIS"
+            this.name = name;
+
+            // 'new' also returns automatically the object 'THIS' so we don't have to return it
+            // return this;
+        }
+
+        Hero.prototype.saludar = function () {
+            console.log(`New: ${this.name}`);
+        }
+
+        const zelda = new Hero("Zelda");
+        zelda.saludar();
+
+        const link = new Hero("Link");
+        link.saludar();
+    </script>
+</body>
+</html>

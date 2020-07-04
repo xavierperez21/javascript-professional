@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Loop</title>
+</head>
+<body>
+    Open the console
+    <script>
+        function moreAsync() {
+            console.log('Start');
+            setTimeout(() => console.log('SetTimeout', 0));
+            Promise.resolve('Promise 1').then(msg => console.log(msg));
+            Promise.resolve('Promise 2').then(msg => console.log(msg));
+            console.log('End');
+        }
+        moreAsync();
+    </script>
+</body>
+</html>

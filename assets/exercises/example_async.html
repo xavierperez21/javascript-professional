@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Hello
+    <script>
+        const asyncFunction = () => {
+            setTimeout(() => {
+                console.log('HEY!! en 4s')
+            }, 300);
+
+            console.log('Hey normal')
+        }
+
+        const otherFunction = () => {
+            console.log('Normal hey!')
+        }
+
+        const otherAsyncFunction = () => {
+            setTimeout(() => {
+                console.log('HEY!! en 2s')
+            }, 299);
+        }
+
+        asyncFunction();
+        otherFunction();
+        otherAsyncFunction();
+
+    </script>
+</body>
+</html>
