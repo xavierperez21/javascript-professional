@@ -6,8 +6,19 @@ function MediaPlayer(config) {
 }
 
 MediaPlayer.prototype._initPlugins = function () {
+    const player = {
+        play: () => this.play(),
+        pause: () => this.pause(),
+        media: this.media,          //We add this property because if we want to call the this.media that we declare in the constructor of MediaPlayer will give us an error because when we call the property 'get' of this object the concept of 'this' passes to 'player'
+        get muted() {
+            return this.media.muted;
+        },
+        set muted(value) {
+            this.media.muted = value;
+        }
+    }
     this.plugins.forEach(plugin => {
-        plugin.run(this);
+        plugin.run(player);
     })
 }
 
