@@ -22,15 +22,15 @@ self.addEventListener('fetch', event => {
 async function precache () {
     const cache = await caches.open(VERSION);  // caches.open generates an instance of a cache that will be called "v1", but this returns a promise and we handle the response with async-await
     return cache.addAll([
-        '/',
-        '/index.html',
-        '/assets/index.js',
-        '/assets/MediaPlayer.js',
-        '/assets/plugins/AutoPlay.js',
-        '/assets/plugins/AutoPause.js',
-        '/assets/index.css',
-        '/assets/favicon.ico',
-        '/assets/BigBuckBunny.mp4',
+        // '/',
+        // '/index.html',
+        // '/assets/index.js',
+        // '/assets/MediaPlayer.js',
+        // '/assets/plugins/AutoPlay.js',
+        // '/assets/plugins/AutoPause.ts',
+        // '/assets/index.css',
+        // '/assets/favicon.ico',
+        // '/assets/BigBuckBunny.mp4',
     ])
 
 }
